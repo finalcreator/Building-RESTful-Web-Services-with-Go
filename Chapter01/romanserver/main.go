@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/narenaryan/romanNumerals"
 	"html"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/restful-go/Chapter01/romanNumerals"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
 				w.WriteHeader(http.StatusNotFound)
 				w.Write([]byte("404 - Not Found"))
 			} else {
-				fmt.Fprintf(w, "%q", html.EscapeString(romanNumerals.Numerals[number]))
+				fmt.Fprintf(w, "%q", html.EscapeString(romanNumerals.Numerals[number])+"  "+"200")
 			}
 		} else {
 			// For all other requests, tell that Client sent a bad request
